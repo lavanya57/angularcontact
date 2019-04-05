@@ -1,0 +1,12 @@
+<div style="text-align:center">
+<h1>Contacts</h1>
+<form #Form="ngForm">
+ Name <input type = "text" [(ngModel)]="name"  name="name" placeholder="Enter name here"><br>
+<br>
+  Phone-No <input type = "number" [(ngModel)]="phone" name = "phone"  placeholder="Enter number here"><br>
+<br>
+<button type = "button" name = "Save" (click) = "get(); Form.reset()">Save</button>
+</form>
+<br>
+<textarea rows = 10 columns = 20 [(ngModel)] = "data" >{{count}}</textarea>
+</div>
