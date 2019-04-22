@@ -1,12 +1,50 @@
+<!--<html>
+<body>
 <div style="text-align:center">
-<h1>Contacts</h1>
-<form #Form="ngForm">
- Name <input type = "text" [(ngModel)]="name"  name="name" placeholder="Enter name here"><br>
-<br>
-  Phone-No <input type = "number" [(ngModel)]="phone" name = "phone"  placeholder="Enter number here"><br>
-<br>
-<button type = "button" name = "Save" (click) = "get(); Form.reset()">Save</button>
+<form novalidate #Form = "ngForm" class = "form">
+    <div class = "form-group" class  >
+      <label>Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type = "text"  placeholder="Enter Name here" min="20" [(ngModel)] = "name" name = "name" #userName = "ngModel" minlength = "2" required>
+      <div *ngIf = "userName.errors?.minlength && userName.touched" class="alert alert-danger">Name should be at least 2 characters</div>
+    </div>
+    <div class = "form-group" >
+      <label>Contact No</label>&nbsp;
+      <input type = "text" placeholder="Enter Number here" size="20"  [(ngModel)] = "phone" name = "phone" #userPhone = "ngModel" minlength = "10">
+      <div *ngIf = "userPhone.errors?.minlength && userPhone.touched" class = "alert alert-danger">Enter valid phone number</div>
+    </div>
+      <button type = "button" class = "btn btn-success" (click) = "get(); Form.reset()">Save</button>
 </form>
 <br>
-<textarea rows = 10 columns = 20 [(ngModel)] = "data" >{{count}}</textarea>
+</body></html>-->
+<div class = "card border-primary mb-3 text-center">
+  <div class = "card-header">Contact Form</div>
+    <div  class  = "card-body">
+        <form novalidate #Form = "ngForm" class = "form">
+            <div class = "form-group" class  >
+              <label>Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input type = "text"  placeholder="Enter Name here" min="20" [(ngModel)] = "name" name = "name" #userName = "ngModel" minlength = "2" required>
+              <div *ngIf = "userName.errors?.minlength && userName.touched" class="alert alert-danger">Name should be at least 2 characters</div>
+            </div>
+            <div class = "form-group" >
+            <label>Contact No</label>&nbsp;
+            <input type = "text" placeholder="Enter Number here" size="20"  [(ngModel)] = "phone" name = "phone" #userPhone = "ngModel" minlength = "10">
+            <div *ngIf = "userPhone.errors?.minlength && userPhone.touched" class = "alert alert-danger">Enter valid phone number</div>
+          </div>
+            <button type = "button" class = "btn btn-success" (click) = "get(); Form.reset()">Save</button>
+      </form>
+  </div>
+</div>
+
+<div class="row card-block">
+<div class="col-4 card" *ngFor="let contact of Contacts" >
+<div class="card" style ="width:18rem;">
+  <div class="card border-primary mb-3 text-center">
+    <div class= "card-header">contact details</div>
+      <div class = "card-body">
+        <p>your Name is: {{contact.name}}</p>
+        <p>Contact-No: {{contact.phone}}</p>
+      </div>
+  </div>
+</div>
+</div>
 </div>

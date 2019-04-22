@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CompComponent } from './comp/comp.component';
+import { CompComponent } from './comp/CompComponent';
 import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
